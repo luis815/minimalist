@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+
+$primary: #0032ba;
+
+@mixin desktop {
+	@media (min-width: 800px) {
+		@content;
+	}
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	font-size: 18px;
+}
+
+html {
+	font-family: "Quicksand", sans-serif;
+}
+
+body {
+	max-width: 460px;
+	margin: auto;
+	padding: 0 20px;
+
+	@include desktop {
+		max-width: 760px;
+	}
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	margin-bottom: 100px;
+
+	span {
+		display: flex;
+		width: 100px;
+		height: 100px;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		color: white;
+		background-color: black;
+		margin-right: 20px;
+		font-weight: 500;
+	}
+
+	ul {
+		list-style: none;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		li {
+			&:not(:last-child) {
+				margin-right: 20px;
+			}
+
+			a {
+				text-decoration: none;
+				color: $primary;
+
+				&:visited {
+					color: $primary;
+				}
+			}
+		}
+	}
+}
+
+header {
+	margin-bottom: 100px;
+	text-align: center;
+
+	h1 {
+		font-size: 64px;
+		font-weight: 500;
+	}
+
+	h2 {
+		font-size: 32px;
+		font-weight: normal;
+	}
+}
+
+section {
+	text-align: center;
+	&:not(:last-child) {
+		margin-bottom: 100px;
+	}
+
+	h3 {
+		font-weight: normal;
+		font-size: 28px;
+		color: $primary;
+		margin-bottom: 20px;
+	}
+
+	p {
+		margin-bottom: 20px;
+
+		@include desktop {
+			margin-bottom: 0;
+		}
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+		border-radius: 20px;
+	}
+
+	@include desktop {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto auto;
+		grid-column-gap: 100px;
+		&:nth-child(2n) {
+			img {
+				grid-column: 1 / 2;
+				grid-row: 1 / 2;
+			}
+		}
+	}
+}
+
+footer {
+	padding: 50px 0;
+	text-align: center;
+	font-weight: lighter;
+
+	@include desktop {
+		padding: 100px 0;
+	}
+}
